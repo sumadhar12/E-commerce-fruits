@@ -1,0 +1,155 @@
+.cart-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 50px 5%;
+  background: linear-gradient(to bottom right, #e6f5e6, #e3f0ff);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.cart-left {
+  flex: 2;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.cart-left h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #2d572c;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px dashed #d9d9d9;
+  padding-bottom: 15px;
+  gap: 20px;
+}
+
+.cart-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.cart-details {
+  flex: 1;
+}
+
+.cart-details h4 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.cart-details p {
+  font-size: 16px;
+  color: #555;
+}
+
+.qty-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.qty-controls button {
+  padding: 4px 12px;
+  font-size: 18px;
+  background: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.qty-controls button:hover {
+  background: #d0ebd0;
+}
+
+.cart-total {
+  font-weight: bold;
+  font-size: 18px;
+  color: #000;
+}
+
+.cart-right {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 30px;
+  height: fit-content;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.cart-right h3 {
+  font-size: 24px;
+  color: #2d572c;
+}
+
+.summary-box {
+  margin-top: 25px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+.summary-row.total {
+  font-weight: 700;
+  font-size: 20px;
+  color: #1f1f1f;
+}
+
+.coupon-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  font-size: 15px;
+}
+
+.apply-btn,
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.apply-btn {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.apply-btn:hover {
+  background: #cdeacc;
+}
+
+.checkout-btn {
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+}
+
+.checkout-btn:hover {
+  background: #1e7e34;
+}

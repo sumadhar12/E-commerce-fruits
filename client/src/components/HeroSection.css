@@ -1,0 +1,70 @@
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 6%;
+  background-color: #e6f5e6;
+  font-family: 'Poppins', sans-serif;
+  flex-wrap: wrap;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.tagline {
+  color: #4caf50;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.main-heading {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0.5rem 0;
+}
+
+.subtext {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.shop-btn {
+  background-color: #8bc34a;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.shop-btn:hover {
+  background-color: #689f38;
+  transform: scale(1.05);
+}
+
+.info-icons {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: #333;
+  align-items: center;
+}
+
+.icon {
+  color: #4caf50;
+  margin-right: 6px;
+}
+
+.hero-image img {
+  max-width: 520px;
+  width: 100%;
+  border-radius: 20px;
+  transition: transform 0.9s ease;
+}
