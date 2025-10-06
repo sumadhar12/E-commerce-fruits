@@ -4,39 +4,49 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
 
+// Load environment variables
 dotenv.config();
+
 const app = express();
 
 // Middleware
 app.use(express.json());
 
-// CORS configuration
+// ✅ CORS setup for both local + production
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:3000'
+];
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin: allowedOrigins,
   credentials: true
 }));
 
-// ✅ Load Routes
-app.use('/api/auth', require('./routes/authRoutes'));
+// ✅ Basic health check route
+app.get('/', (req, res) => {
+  res.send('OrganicFruit backend is running successfully! 🚀');
+});
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-  .then(() => console.log('✅ MongoDB connected'))
+// ✅ Load routes
+app.use('/api/auth', require('./routes/authRoutes'));
+// You can add others: app.use('/api/products', require('./routes/productRoutes'));
+
+// ✅ MongoDB Connection
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('✅ MongoDB connected successfully'))
   .catch(err => console.error('❌ DB connection error:', err.message));
 
-// Serve React frontend in production
+// ✅ Serve frontend build when in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'frontend/build')));
+  const clientPath = path.join(__dirname, '../client/build');
+  app.use(express.static(clientPath));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+    res.sendFile(path.join(clientPath, 'index.html'));
   });
 }
 
-// Start Server
+// ✅ Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
