@@ -42,9 +42,7 @@ const start = async () => {
   try {
     await connectToDatabase();
     console.log("db connected successfully");
-    if (!process.env.VERCEL) {
       app.listen(port, () => console.log(`server is running on port ${port}`));
-    }
   } catch (error) {
     console.log(error);
   }
