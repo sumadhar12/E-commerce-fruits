@@ -42,7 +42,7 @@ const Login = () => {
         localStorage.setItem('token', data.token || 'dummyToken');
 
         // ✅ Redirect back to cart or home
-        navigate(from, { replace: true });
+        navigate('/cart');
       } else {
         alert(data.message || '❌ Login failed');
       }
