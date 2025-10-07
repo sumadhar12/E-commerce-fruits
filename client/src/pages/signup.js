@@ -25,7 +25,7 @@ export default function Signup() {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/signup", formData);
+      const res = await axios.post("https://e-commerce-fruits-backend.vercel.app/api/auth/signup", formData);
       if (res.data.message) {
         setMessage(res.data.message);
       } else {
