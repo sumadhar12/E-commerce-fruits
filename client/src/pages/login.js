@@ -15,7 +15,7 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/"; // Default redirect after login
 
-  const BASE_URL = 'https://e-commerce-fruits-backend.vercel.app/';
+  const BASE_URL = 'https://e-commerce-fruits-backend.vercel.app';
 
   const handleLogin = async (e) => {
     e.preventDefault();
