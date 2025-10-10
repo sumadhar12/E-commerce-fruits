@@ -3,7 +3,7 @@ import './login.css';
 import loginImage from '../assets/login-illustration.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
@@ -13,7 +13,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/"; // Default redirect after login
+  const from = location.state?.from?.pathname || "/cart"; // Default redirect after login
 
   const BASE_URL = 'https://e-commerce-fruits-backend.vercel.app';
 
@@ -41,8 +41,11 @@ const Login = () => {
         // ✅ Store token or login flag
         localStorage.setItem('token', data.token || 'dummyToken');
 
-        // ✅ Redirect back to cart or home
-        navigate('/cart');
+        // ✅ Mark session as authenticated and redirect
+        if (typeof setIsAuthenticated === 'function') {
+          setIsAuthenticated(true);
+        }
+        navigate(from, { replace: true });
       } else {
         alert(data.message || '❌ Login failed');
       }
